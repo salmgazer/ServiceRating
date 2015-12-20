@@ -1,0 +1,17 @@
+
+#rateForm {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#rateForm li{
+    list-style: none;
+    display: inline;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.star-rating{
+    margin-bottom: 20px;
+}
