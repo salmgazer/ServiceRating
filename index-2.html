@@ -34,38 +34,43 @@
 
         <div class="admin-view hide" id="rateForm">
             <div class="row">
-               <h1 class="company-name">Admin View</h1>
-               <div class="offset-s6">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input  id="first_name" type="text" class="validate">
-                            <label for="first_name">Company Name</label>
+                <h1 class="company-name">Admin View</h1>
+                <div class="offset-s6">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">Company Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <button id="getRates" class="waves-effect waves-light btn col s12">Set Company Name</button>
+                            </div>
                         </div>
-                        <div class="input-field col s6">
-                        <button id="getRates" class="waves-effect waves-light btn col s12">Set Company Name</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
             </div>
             <hr class="divider">
             <!-- Control Values -->
             <div class="row">
-                <div class=" col s12">
-                    <div class="col s">
-                        <button id="getRates" class="waves-effect waves-light btn col s12"><i class="fa fa-star"></i>Show rates</button>
+                    <div class="input-field col s12">
+                        <div class="col s4">
+                            <button id="getRates" class="waves-effect waves-light btn">Show rates</button>
+                        </div>
+                        <div class="col s4">
+                            <button id="clearRates" class="waves-effect waves-light btn">Clear Rates</button>
+                        </div>
+                        <div class="col s4">
+                            <button id="exportRates" class="waves-effect waves-light btn"><i class="fa fa-send"></i>Export</button>
+                            <a href="" id="dataLink" download="rating.csv"></a>
+                        </div>
                     </div>
-                    <div class="col s4">
-                        <button id="clearRates" class="waves-effect waves-light btn col s12">Clear Rates</button>
-                    </div>
-                    <div class="col s4">
-                        <button id="exportRates" class="waves-effect waves-light btn col s12"><i class="fa fa-send"></i>Export</button>
-                        <a href="" id="dataLink" download="rating.csv"></a>
-                    </div>
-                </div>
             </div>
             <!--/Control Values -->
+            <hr class="divider">
+
+            <div id="ratesArea" class="col s6">
+                rates area
+            </div>
         </div>
 
     </div>
@@ -94,7 +99,7 @@
             <div class="input-field col s6">
                 <input id="pword" type="password" class="validate">
                 <label for="last_name">Password</label>
-                <a class="waves-effect waves-light btn"><i class="fa fa-send left"></i>Submit</a>
+                <a class="waves-effect waves-light btn" id="authenticate_btn"><i class="fa fa-send left"></i>Submit</a>
             </div>
         </div>
     </div>

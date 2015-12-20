@@ -69,6 +69,8 @@ $(function () {
         for (var i = 0; i < rating.length; i++) {
             key = rating.key(i);
             $('#ratesArea').append(key + "   " + rating.getItem(key));
+            $('#ratesArea2').append(key + "   " + rating.getItem(key));
+            alert();
         }
     }
 
@@ -116,15 +118,20 @@ $(function () {
 
         }, // Callback for Modal open
         complete: function () {
-                $(".user-view").hide();
-                $(".admin-view").removeClass("hide");
+
             } // Callback for Modal close
     });
 
     //A function that triggers when there is a switch to the user view
-    $("#user-switch").click(function(){
+    $("#user-switch").click(function () {
         $(".user-view").show();
         $(".admin-view").addClass("hide");
+    });
+
+    $("#authenticate_btn").click(function () {
+        $(".user-view").hide();
+        $(".admin-view").removeClass("hide");
+        $('#modal1').closeModal();
     });
 
     //This function handles the star checks
@@ -135,7 +142,7 @@ $(function () {
             $(this).prevAll().andSelf().find("i").removeClass("fa-star-o").addClass("fa-star");
             rating_val = $(this).index() + 1;
             rate(rating_val);
-            var $toastContent = "Thank You For Rating Us "+rating_val+" Stars";
+            var $toastContent = "Thank You For Rating Us " + rating_val + " Stars";
             Materialize.toast($toastContent, 5000);
         }
     );

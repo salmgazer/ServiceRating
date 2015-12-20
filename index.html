@@ -6,44 +6,45 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-<!--    <link rel="stylesheet" href="css/custom.css">-->
+    <!--    <link rel="stylesheet" href="css/custom.css">-->
 </head>
 
 <body>
     <div class="row">
-           <form class="col s12">
-           <div class="input-field col s6">
-            <input id="compName" type="text" placeholder="company name" class="input-field col s6">
-            <label for="compName">Company Name</label>
-            <button id="setCompName" class="waves-effect waves-light btn">Set Company Name</button>
+        <form class="col s12">
+            <div class="input-field col s6">
+                <input id="compName" type="text" placeholder="company name" class="input-field col s6">
+                <label for="compName">Company Name</label>
+                <button id="setCompName" class="waves-effect waves-light btn">Set Company Name</button>
             </div>
         </form>
         <form id="rateForm" class="col s12">
-           <div class="input-field col s6">
-               <input type="number" name="rate" id="rate" min="0" max="5" maxlength="1" class="input-field col s6">
-               <label for="number">Rating</label>
-               <button id="rateFormSubmit" class="waves-effect waves-light btn">Submit</button>
-           </div>
+            <div class="input-field col s6">
+                <input type="number" name="rate" id="rate" min="0" max="5" maxlength="1" class="input-field col s6">
+                <label for="number">Rating</label>
+                <button id="rateFormSubmit" class="waves-effect waves-light btn">Submit</button>
+            </div>
         </form>
         <!-- Control Values -->
         <div class="row">
-           <div class="input-field col s6">
-            <div class="col s3">
-                <button id="getRates" class="waves-effect waves-light btn"><i class="fa fa-star"></i>Show rates</button>
-            </div>
-            <div class="col s3 ">
-                <button id="clearRates" class="waves-effect waves-light btn">Clear Rates</button>
-            </div>
-            <div id="ratesArea" class="col ss6" >
-            rates area
-            </div>
-            <div class="col s3">
-                <button id="exportRates" class="waves-effect waves-light btn"><i class="fa fa-send"></i>Export</button>
-                <a href="" id="dataLink" download="rating.csv"></a>
-            </div>
+            <div class="input-field col s6">
+                <div class="col s3">
+                    <button id="getRates" class="waves-effect waves-light btn"><i class="fa fa-star"></i>Show rates</button>
+                </div>
+                <div class="col s3 ">
+                    <button id="clearRates" class="waves-effect waves-light btn">Clear Rates</button>
+                </div>
+                <div class="col s3">
+                    <button id="exportRates" class="waves-effect waves-light btn"><i class="fa fa-send"></i>Export</button>
+                    <a href="" id="dataLink" download="rating.csv"></a>
+                </div>
             </div>
         </div>
         <!--/Control Values -->
+        <hr class="divider">
+        <div id="ratesArea" class="col s10">
+            rates area
+        </div>
 
     </div>
 
