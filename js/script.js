@@ -106,17 +106,25 @@ $(function () {
         $link.attr("href", 'data:Application/octet-stream,' + encodeURIComponent(csv))[0].click();
     }
 
+    //A function that does user authemtication before switching
     $('.modal-trigger').leanModal({
         dismissible: true, // Modal can be dismissed by clicking outside of the modal
         opacity: .5, // Opacity of modal background
         in_duration: 300, // Transition in duration
         out_duration: 200, // Transition out duration
         ready: function () {
-            alert('Ready');
+
         }, // Callback for Modal open
         complete: function () {
-                alert('Closed');
+                $(".user-view").hide();
+                $(".admin-view").removeClass("hide");
             } // Callback for Modal close
+    });
+
+    //A function that triggers when there is a switch to the user view
+    $("#user-switch").click(function(){
+        $(".user-view").show();
+        $(".admin-view").addClass("hide");
     });
 
     //This function handles the star checks
