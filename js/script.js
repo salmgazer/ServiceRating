@@ -78,8 +78,10 @@ $(function () {
         document.getElementById("ratesArea").innerHTML = "";
         for (var i = 0; i < rating.length; i++) {
             key = rating.key(i);
-            $('#ratesArea').append(key + "   " + rating.getItem(key));
-            $('#ratesArea2').append(key + "   " + rating.getItem(key));
+            if (key !== '' && key !== 'company' && key !== 'admin_pword' && rate !== '') {
+                $('#ratesArea').append(key + "   " + rating.getItem(key));
+                $('#ratesArea2').append(key + "   " + rating.getItem(key));
+            }
         }
     }
 
@@ -111,7 +113,7 @@ $(function () {
             key = rating.key(i);
             rate = rating.getItem(key);
             //$('#ratesArea').append(key+"   "+localStorage.getItem(key));
-            if (key !== '' && rate !== '') csv += key + "," + rate + "\n";
+            if (key !== '' && key !== 'company' && key !== 'admin_pword' && rate !== '') csv += key + "," + rate + "\n";
         }
         //console.log(csv);
         $link.attr("href", 'data:Application/octet-stream,' + encodeURIComponent(csv))[0].click();
