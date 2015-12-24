@@ -4,7 +4,7 @@ var rating = window.localStorage;
 function setCompanyName(bool_val) {
     if (bool_val===1) {
         localStorage.setItem("company", $("#comp_name").val());
-        $(".company-name").html(localStorage.getItem("company"));
+        $(".company-name").html(rating.getItem("company"));
     } else {
         Materialize.toast("Opertaion Cancelled", 2000);
     }
@@ -14,6 +14,7 @@ $(function () {
     // Operations that load at the beginning of the program
     if (rating.getItem('admin_pword') === null) {
         rating.setItem('admin_pword', 'rosedodd');
+        rating.setItem('company', 'Company Name');
     }
 
 
