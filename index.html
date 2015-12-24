@@ -12,17 +12,17 @@
     <div class="container">
         <div class="user-view" id="rateForm">
             <div class="offset-s6">
-                <h1 class="company-name">Company Name</h1>
+                <h3 class="company-name">Company Name</h3>
                 <div class="input-field col s12">
                     <p class="message">Kindly Rate Our Services</p>
                     <hr class="divider">
-                    <div class="star-rating">
+                    <div class="star-rating col s12">
                         <ul>
-                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
-                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
-                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
-                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
-                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
+                            <li><a><span><i class="fa fa-star-o fa-2x"></i></span></a></li>
+                            <li><a><span><i class="fa fa-star-o fa-2x"></i></span></a></li>
+                            <li><a><span><i class="fa fa-star-o fa-2x"></i></span></a></li>
+                            <li><a><span><i class="fa fa-star-o fa-2x"></i></span></a></li>
+                            <li><a><span><i class="fa fa-star-o fa-2x"></i></span></a></li>
                         </ul>
                     </div>
                     <!--                <a class="waves-effect waves-light btn col s12"><i class="fa fa-send left"></i>Submit</a>-->
@@ -41,7 +41,7 @@
                                 <input id="comp_name" type="text" class="validate">
                                 <label for="comp_name">Company Name</label>
                             </div>
-                            <div class="col s6">
+                            <div class="col s12">
                                 <a id="setCompName" class="waves-effect waves-light btn col s12">Set Company Name</a>
                             </div>
                         </div>
@@ -51,15 +51,15 @@
             <hr class="divider">
             <!-- Control Values -->
             <div class="row">
-                <div class="input-field col s12">
-                    <div class="col s4">
-                        <button id="getRates" class="waves-effect waves-light btn">Show rates</button>
+                <div class="input-field">
+                    <div class="row col s12">
+                        <button id="getRates" class="waves-effect waves-light col s12 btn">Show rates</button>
                     </div>
-                    <div class="col s4">
-                        <button id="clearRates" class="waves-effect waves-light btn">Clear Data</button>
+                    <div class="row col s12">
+                        <button id="clearRates" class="waves-effect waves-light col s12 btn">Clear Data</button>
                     </div>
-                    <div class="col s4">
-                        <button id="exportRates" class="waves-effect waves-light btn"><i class="fa fa-send"></i>Export</button>
+                    <div class="row col s12">
+                        <button id="exportRates" class="waves-effect waves-light col s12 btn"><i class="fa fa-send"></i>Export Data</button>
                         <a href="" id="dataLink" download="rating.csv"></a>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
 
     <!--Switching between admin and user-->
 
-    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <div class="fixed-action-btn" style="bottom: 10px; right: 10px;">
         <a class="btn-floating btn-large red">
             <i class="fa fa-bars"></i>
         </a>
