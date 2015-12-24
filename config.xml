@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.dtandoh.pg1" versionCode="11" version="1.0.0">
+    <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.israel.pg1" versionCode="11" version="1.0.0">
         <!--    versionCode is  opIonal and Android only    -->
         <name>Rate Me</name>
         <description>
@@ -9,11 +9,6 @@
             Israel Agyeman-Prempeh and Salifu Mutaru
         </author>
         <icon src="logo.png" />
-        <gap:plugin name="net.roughshod.plugins.barcodescanner" version="3.0.0" />
-        <gap:plugin name="cordova-plugin-whitelist" source="npm" />
-        <allow-navigation href="*" />
-        <allow-intent href="*" />
-        <access origin="*"/>
         <gap:splash src="logo.png" />
         <gap:plaGorm name="ios" />
         <gap:plaGorm name="android" />
