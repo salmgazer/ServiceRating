@@ -2,7 +2,7 @@ var rating = window.localStorage;
 
 //this function sets the name of the company
 function setCompanyName(bool_val) {
-    if (bool_val===1) {
+    if (bool_val === 1) {
         localStorage.setItem("company", $("#comp_name").val());
         $(".company-name").html(rating.getItem("company"));
     } else {
@@ -151,11 +151,16 @@ $(function () {
         function (i) {
             $('.star-rating li').find("i").removeClass("fa-star").addClass("fa-star-o");;
             $(this).prevAll().andSelf().find("i").removeClass("fa-star-o").addClass("fa-star");
-            alert("Hi");
             rating_val = $(this).index() + 1;
             rate(rating_val);
             var $toastContent = "Thank You For Rating Us " + rating_val + " Stars";
             Materialize.toast($toastContent, 5000);
+
+            setTimeout(function () {
+                window.location.reload();
+            }, 3000);
+
+
         }
     );
 
