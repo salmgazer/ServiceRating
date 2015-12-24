@@ -1,5 +1,9 @@
-var rating = window.localStorage;
+function onLoad() {
+    // A simple check for phones tto make sure device is ready to with all plugins
+    document.addEventListener("deviceready", deviceReady, false);
+}
 
+var rating = window.localStorage;
 //this function sets the name of the company
 function setCompanyName(bool_val) {
     if (bool_val === 1) {
@@ -10,7 +14,7 @@ function setCompanyName(bool_val) {
     }
 }
 
-$(function () {
+var deviceReady = $(function () {
     // Operations that load at the beginning of the program
     if (rating.getItem('admin_pword') === null) {
         rating.setItem('admin_pword', 'rosedodd');
