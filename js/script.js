@@ -6,11 +6,14 @@ function onLoad() {
 var rating = window.localStorage;
 //this function sets the name of the company
 function setCompanyName(bool_val) {
-    if (bool_val === 1) {
-        localStorage.setItem("company", $("#comp_name").val());
+    var newname = $("#comp_name").val();
+    if (bool_val === 1 && newname !== '') {
+        localStorage.setItem("company",newname);
         $(".company-name").html(rating.getItem("company"));
-    } else {
+    } else if (bool_val === 2){
         Materialize.toast("Opertaion Cancelled", 2000);
+    }else{
+        alert("You Have Not Entered Any Name");
     }
 }
 
@@ -158,7 +161,7 @@ var deviceReady = $(function () {
             rating_val = $(this).index() + 1;
             rate(rating_val);
             var $toastContent = "Thank You For Rating Us " + rating_val + " Stars";
-            Materialize.toast($toastContent, 5000);
+            Materialize.toast($toastContent, 3000);
 
             setTimeout(function () {
                 window.location.reload();

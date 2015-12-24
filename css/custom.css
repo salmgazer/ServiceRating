@@ -5,6 +5,12 @@
     text-align: center;
 }
 
+.user-view#rateForm {
+    display: block;
+    margin: 30% auto;
+    text-align: center;
+}
+
 #rateForm li{
     list-style: none;
     display: inline;
@@ -15,3 +21,5 @@
 .star-rating{
     margin-bottom: 20px;
 }
+
+
