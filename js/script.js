@@ -60,7 +60,6 @@ $(function () {
         if (rate.length < 1)
             return alert("You need to add a rate");
         rating.setItem(time_sent, rate);
-        alert(rating.getItem(time_sent));
     }
 
     //this function adds new rate
@@ -81,7 +80,6 @@ $(function () {
             key = rating.key(i);
             $('#ratesArea').append(key + "   " + rating.getItem(key));
             $('#ratesArea2').append(key + "   " + rating.getItem(key));
-            alert();
         }
     }
 
