@@ -3,56 +3,122 @@
 
 <head>
     <title>Rate Me</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!--    <link rel="stylesheet" href="css/custom.css">-->
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
-    <div class="row">
-        <form class="col s12">
-            <div class="input-field col s6">
-                <input id="compName" type="text" placeholder="company name" class="input-field col s6">
-                <label for="compName">Company Name</label>
-                <button id="setCompName" class="waves-effect waves-light btn">Set Company Name</button>
-            </div>
-        </form>
-        <form id="rateForm" class="col s12">
-            <div class="input-field col s6">
-                <input type="number" name="rate" id="rate" min="0" max="5" maxlength="1" class="input-field col s6">
-                <label for="number">Rating</label>
-                <button id="rateFormSubmit" class="waves-effect waves-light btn">Submit</button>
-            </div>
-        </form>
-        <!-- Control Values -->
-        <div class="row">
-            <div class="input-field col s6">
-                <div class="col s3">
-                    <button id="getRates" class="waves-effect waves-light btn"><i class="fa fa-star"></i>Show rates</button>
-                </div>
-                <div class="col s3 ">
-                    <button id="clearRates" class="waves-effect waves-light btn">Clear Rates</button>
-                </div>
-                <div class="col s3">
-                    <button id="exportRates" class="waves-effect waves-light btn"><i class="fa fa-send"></i>Export</button>
-                    <a href="" id="dataLink" download="rating.csv"></a>
+    <div class="container">
+        <div class="user-view" id="rateForm">
+            <div class="offset-s6">
+                <h1 class="company-name">Company Name</h1>
+                <div class="input-field col s12">
+                    <p class="message">Kindly Rate Our Services</p>
+                    <hr class="divider">
+                    <div class="star-rating">
+                        <ul>
+                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
+                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
+                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
+                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
+                            <li><a><span><i class="fa fa-star-o fa-3x"></i></span></a></li>
+                        </ul>
+                    </div>
+                    <!--                <a class="waves-effect waves-light btn col s12"><i class="fa fa-send left"></i>Submit</a>-->
                 </div>
             </div>
-        </div>
-        <!--/Control Values -->
-        <hr class="divider">
-        <div id="ratesArea" class="col s10">
-            rates area
         </div>
 
+
+        <div class="admin-view hide" id="rateForm">
+            <div class="row">
+                <h1 class="company-name">Admin View</h1>
+                <div class="offset-s6">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="comp_name" type="text" class="validate">
+                                <label for="comp_name">Company Name</label>
+                            </div>
+                            <div class="col s6">
+                                <a id="setCompName" class="waves-effect waves-light btn col s12">Set Company Name</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider">
+            <!-- Control Values -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <div class="col s4">
+                        <button id="getRates" class="waves-effect waves-light btn">Show rates</button>
+                    </div>
+                    <div class="col s4">
+                        <button id="clearRates" class="waves-effect waves-light btn">Clear Data</button>
+                    </div>
+                    <div class="col s4">
+                        <button id="exportRates" class="waves-effect waves-light btn"><i class="fa fa-send"></i>Export</button>
+                        <a href="" id="dataLink" download="rating.csv"></a>
+                    </div>
+                </div>
+            </div>
+            <!--/Control Values -->
+            <hr class="divider">
+
+            <div id="ratesArea" class="col s6">
+                rates area
+            </div>
+        </div>
+
+    </div>
+
+    <!--Switching between admin and user-->
+
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a class="btn-floating btn-large red">
+            <i class="fa fa-bars"></i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating btn-large yellow darken-1 modal-trigger" id="admin-switch" href="#modal1">
+                    <i class="fa fa-lock"></i>
+                </a>
+            </li>
+            <li><a class="btn-floating btn-large green darken-1"><i class="fa fa-star" id="user-switch"></i></a></li>
+        </ul>
+    </div>
+
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Authentication</h4>
+            <div class="input-field col s6">
+                <input id="pword" type="password" class="validate">
+                <label for="last_name">Password</label>
+                <a class="waves-effect waves-light btn" id="authenticate_btn"><i class="fa fa-send left"></i>Submit</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Modal Trigger -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <h4>Change Company Name</h4>
+            <p>Are You Sure You Want To Change The Company Name?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onclick="setCompanyName(0)" >No</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onclick="setCompanyName(1)">Yes</a>
+        </div>
     </div>
 
 
     <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="js/xlsx.js" type="text/javascript"></script>
     <script src="js/script.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/materialize.min.js" type="text/javascript"></script>
 </body>
 

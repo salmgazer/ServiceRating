@@ -1,7 +1,24 @@
 var rating = window.localStorage;
 
+//this function sets the name of the company
+function setCompanyName(bool_val) {
+    if (bool_val === 1) {
+        localStorage.setItem("company", $("#comp_name").val());
+        $(".company-name").html(rating.getItem("company"));
+    } else {
+        Materialize.toast("Opertaion Cancelled", 2000);
+    }
+}
 
 $(function () {
+    // Operations that load at the beginning of the program
+    if (rating.getItem('admin_pword') === null) {
+        rating.setItem('admin_pword', 'rosedodd');
+        rating.setItem('company', 'Company Name');
+    }
+
+
+    $(".company-name").html(getCompanyName());
     $('#rateFormSubmit').click(function (e) {
         e.preventDefault();
         addRate();
@@ -26,19 +43,13 @@ $(function () {
     });
 
     //ActionListener for setting company name
-    $('#setCompName').submit(function (e) {
-        e.preventDefault();
-        setCompanyName();
+    $("#setCompName").click(function () {
+        $('#confirm-modal').openModal();
     });
 
-    //this function sets the name of the company
-    function setCompanyName() {
-        var compName = $("#compName");
-        localStorage.setItem("company", compName);
-    }
 
     function getCompanyName() {
-        alert(localStorage.getItem("company"));
+        return localStorage.getItem("company");
     }
 
     //this function adds new rate
@@ -114,24 +125,24 @@ $(function () {
         opacity: .5, // Opacity of modal background
         in_duration: 300, // Transition in duration
         out_duration: 200, // Transition out duration
-        ready: function () {
-
-        }, // Callback for Modal open
-        complete: function () {
-
-            } // Callback for Modal close
     });
 
     //A function that triggers when there is a switch to the user view
     $("#user-switch").click(function () {
-        $(".user-view").show();
-        $(".admin-view").addClass("hide");
+        window.location.reload();
     });
 
     $("#authenticate_btn").click(function () {
-        $(".user-view").hide();
-        $(".admin-view").removeClass("hide");
-        $('#modal1').closeModal();
+        //Authentication
+        if ($("#pword").val() === rating.getItem("admin_pword")) {
+            $(".user-view").hide();
+            $(".admin-view").removeClass("hide");
+            $('#modal1').closeModal();
+            Materialize.toast("Authenticated", 2000);
+        } else {
+            Materialize.toast("Sorry Wrong Password", 2000);
+        }
+
     });
 
     //This function handles the star checks
@@ -144,6 +155,12 @@ $(function () {
             rate(rating_val);
             var $toastContent = "Thank You For Rating Us " + rating_val + " Stars";
             Materialize.toast($toastContent, 5000);
+
+            setTimeout(function () {
+                window.location.reload();
+            }, 3000);
+
+
         }
     );
 
