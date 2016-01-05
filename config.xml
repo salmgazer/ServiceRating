@@ -9,7 +9,7 @@
             Israel Agyeman-Prempeh and Salifu Mutaru
         </author>
         <icon src="logo.png" />
-        <gap:plugin name="net.roughshod.plugins.barcodescanner" version="3.0.0" />
+        <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />
         <gap:plugin name="cordova-plugin-whitelist" source="npm" />
         <allow-navigation href="*" />
         <allow-intent href="*" />

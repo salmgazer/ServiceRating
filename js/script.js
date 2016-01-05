@@ -76,13 +76,26 @@ $(function () {
     //this function returns all existing ratings
     function getRates() {
         document.getElementById("ratesArea").innerHTML = "";
+        var myRates = "Time sent, Rating";
         for (var i = 0; i < rating.length; i++) {
             key = rating.key(i);
             if (key !== '' && key !== 'company' && key !== 'admin_pword' && rate !== '') {
                 $('#ratesArea').append(key + "   " + rating.getItem(key));
-                $('#ratesArea2').append(key + "   " + rating.getItem(key));
+                myRates += key+","+rating.getItem(key)+"<br>";
+                //$('#ratesArea2').append(key + "   " + rating.getItem(key));
             }
         }
+        cordova.plugins.email.isAvailable(
+          function (isAvailable) {
+              alert('Service is not available');
+          }
+        );
+        cordova.plugins.email.open({
+            to:      'salifumutaru@gmail.com',
+            subject: 'Ratings from '+rating.company,
+            body:    myRates,
+            isHtml:  true
+        });
     }
 
     //This function shows the number of ratings current in memory
