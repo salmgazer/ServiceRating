@@ -3,7 +3,19 @@ function onLoad() {
     document.addEventListener("deviceready", deviceReady, false);
 }
 
+var link = "http://banaatuljannah.org/app/server/controller/controller.php?cmd=";
 var rating = window.localStorage;
+
+function sendRequest(u){
+    // Send request to server
+    //u a url as a string
+    //async is type of request
+    var obj=$.ajax({url:u,async:false});
+    //Convert the JSON string to object
+    var result=$.parseJSON(obj.responseText);
+    return result;  //return object
+}
+
 //this function sets the name of the company
 function setCompanyName(bool_val) {
     var newname = $("#comp_name").val();
@@ -83,12 +95,26 @@ var deviceReady = $(function () {
     //this function returns all existing ratings
     function getRates() {
         document.getElementById("ratesArea").innerHTML = "";
+        myRates = "";
         for (var i = 0; i < rating.length; i++) {
             key = rating.key(i);
             if (key !== '' && key !== 'company' && key !== 'admin_pword' && rate !== '') {
-                $('#ratesArea').append(key + "   " + rating.getItem(key));
-                $('#ratesArea2').append(key + "   " + rating.getItem(key));
+                $('#ratesArea').append(key + "     " + rating.getItem(key)+"<br>");
+                myRates += key + "," + rating.getItem(key)+"<br>";
+               // $('#ratesArea2').append(key + "   " + rating.getItem(key));
             }
+        }
+        emailRates(myRates)
+    }
+
+    function emailRates(myRates){
+        var strUrl = link+"46&receipient=salifumutaru@gmail.com&subject=Ratings from "+rating.company+"&message="+myRates;
+        var objResult = sendRequest(strUrl);
+        if(objResult.result === 0){
+            Materialize.toast("Could not send ratings.", 4000, 'red');
+            Materialize.toast("Check internet connection.", 4000, 'red');
+        }else if(objResult.result == 1){
+            Materialize.toast("Ratings have been emailed to you", 4000, 'green lighten-2');
         }
     }
 
@@ -108,7 +134,7 @@ var deviceReady = $(function () {
 
     //this function exports rates into csv
     function exportRates() {
-        if (rating.length == 0)
+        /*if (rating.length == 0)
             return alert("No ratings yet");
 
         var $link = $("#dataLink");
@@ -124,6 +150,8 @@ var deviceReady = $(function () {
         }
         //console.log(csv);
         $link.attr("href", 'data:Application/octet-stream,' + encodeURIComponent(csv))[0].click();
+        */
+        Materialize.toast("Not yet working", 4000, 'red');
     }
 
     //A function that does user authemtication before switching
