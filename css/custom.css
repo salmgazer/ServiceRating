@@ -23,3 +23,30 @@
 }
 
 
+
+.smiley-rating {
+
+}
+
+.smiley-rating a:hover{
+    font-size: 1.2em;
+    transition: 0.5s ease;
+}
+
+
+.custom-message p span{
+    position: absolute;
+    left: 18em;
+    top: 2.5em;
+}
+
+
+
+.message {
+    font-size: 25px;
+    font-weight: lighter;
+    padding-bottom:40px;
+    border-bottom: 1px solid #ccc;
+}
+
+
