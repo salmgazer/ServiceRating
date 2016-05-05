@@ -111,7 +111,7 @@ var deviceReady = $(function () {
     }
 
     function emailRates(myRates) {
-        var strUrl = link + "46&receipient=prophet.agyeman-prempeh@ashesi.edu.gh@ashesi.edu.gh&subject=Ratings from " + rating.company + "&message=" + myRates;
+        var strUrl = link + "46&receipient=roseabadodd@gmail.com&subject=Ratings from " + rating.company + "&message=" + myRates;
         var objResult = sendRequest(strUrl);
         if (objResult.result === 0) {
             Materialize.toast("Could not send ratings.", 4000, 'red');
