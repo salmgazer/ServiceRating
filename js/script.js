@@ -3,7 +3,7 @@ function onLoad() {
     document.addEventListener("deviceready", deviceReady, false);
 }
 
-var link = "http://banaatuljannah.org/app/server/controller/controller.php?cmd=";
+var link = "http://realgalacticos.org/app/mail.php?cmd=";
 var rating = window.localStorage;
 
 function sendRequest(u) {
